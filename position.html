@@ -41,7 +41,13 @@ $(document).ready(function(){
 
         
         $.each(url, function(index, value) {
-            url_array.push(str+$(value).attr('href'));
+            if($(value).attr('href').toLowerCase().startsWith("http")){
+              url_array.push($(value).attr('href'));
+            }
+            else{
+              url_array.push(str+$(value).attr('href'));
+            }
+
         });
         //console.log(url_array);
 
@@ -56,7 +62,7 @@ $(document).ready(function(){
         	if(title_array[counter].includes($("#keyword").val())){
                 var markup = "<tr><td>" +   date_array[counter]  + "</td>"
                                + "<td>" +   title_array[counter] + "</td>"
-                               + "<td><a href=" +   url_array[counter] + '">'  
+                               + "<td><a href=" +   url_array[counter] + '>'  
                                + url_array[counter] + "</td>"
                                + "</tr>"
                 tableBody = $("table tbody"); 
