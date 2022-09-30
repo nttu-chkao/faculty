@@ -21,7 +21,7 @@ $(document).ready(function(){
     var url_array   = [];
 
     $.getJSON(url, function(response){  
-
+        console.log(response)
         var counter = 0;
 
         var title = ($('.news_list.marb_30 h3', response.contents));
